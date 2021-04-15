@@ -1,5 +1,6 @@
 // Variables
-const courses = document.querySelector('#courses-list');
+const courses = document.querySelector('#courses-list'),
+        shoppingCartContent = document.querySelector('#cart-content tbody');
 
 //Listeners
 loadEventListeners();
@@ -44,10 +45,18 @@ function addIntoCart(course) {
 
     //Build the template
     row.innerHTML = `
-        
-
-
-
-    
+        <tr>
+            <td>
+                <img src="${course.image}" width=100>
+            </td>
+            <td>${course.title}</td>
+            <td>${course.price}</td>
+            <td>
+                <a href="#" class="remove" data-id="${course.id}">X</a>
+            </td>
+        </tr>
         `;
+
+        //Add into the shopping cart
+        shoppingCartContent.appendChild(row);
 }
