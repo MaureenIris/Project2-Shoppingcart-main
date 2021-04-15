@@ -27,5 +27,27 @@ function buyCourse(e){
 
 //Reads the Html information of the selected course
 function getCourseInfo(course){
-    console.log(course);
+    //Create an object with course data
+    const courseInfo = {
+        image: course.querySelector('img').src,
+        title: course.querySelector('h4').textContent,
+        price: course.querySelector('.price span').textContent,
+        id: course.querySelector('a').getAttribute('data-id')
+    }
+    //Insert into the shopping cart
+    addIntoCart(courseInfo);
+}
+//Display the selected course into the shopping cart
+function addIntoCart(course) {
+    //create a <tr>
+    const row = document.createElement('tr');
+
+    //Build the template
+    row.innerHTML = `
+        
+
+
+
+    
+        `;
 }
